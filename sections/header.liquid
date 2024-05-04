@@ -1,26 +1,41 @@
-<div class="site-header container">
-  {% if settings.logo != blank %}
-    <a href="{{ shop.url }}">
-      <img
-        src="{{ settings.logo | img_url: 'medium' }}"
-        alt="{{ shop.name | escape }}"
-        style="width: {{ settings.logo_width }}px;"
-      >
-    </a>
-  {% endif %}
-
-  <nav>
-    <ul>
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">Shopoognngp</a></li>
-      <li><a href="#">Product</a></li>
-      <li><a href="#">Blog</a></li>
-      <li><a href="#">Page</a></li>
-    </ul>
-  </nav>
-  <div class="header-icons">
-    <button class="icon-button">🔍</button>
-    <button class="icon-button">❤️</button>
-    <button class="icon-button">🛒</button>
+<div class="container">
+  <div class="site-header">
+    {% if settings.logo != blank %}
+      <a class="logo-link" href="{{ shop.url }}">
+        <img
+          src="{{ settings.logo | img_url: 'medium' }}"
+          alt="{{ shop.name | escape }}"
+          style="width: {{ settings.logo_width }}px;"
+        >
+        </a>
+      {% endif %}
+      
+      <nav class="header-nav nav">
+        <ul class="nav__list list">
+          {% for link in linklists['main-menu'].links %}
+            <li class="list__item item">
+              <a class="item__link" href="{{ link.url }}">{{ link.title }}</a>
+              
+              {% render 'chevron-down' %}
+            </li>
+          {% endfor %}
+        </ul>
+        
+      </nav>
+      
+      <div class="header-icons">
+        <a href="{{ routes.search_url }}" class="header-icon">
+          {% render 'icon-search' %}
+        </a>
+        
+        <a href="{{ routes.wishlist_url }}" class="header-icon">
+          {% render 'icon-heart' %}
+        </a>
+        
+        <a href="{{ routes.cart_url }}" class="whitespace-nowrap text-base text-gray-500 hover:text-gray-900">
+          {% render 'shopping-cart' %}
+      </a>
+      </div>
+    </div>
   </div>
-</div>
+  

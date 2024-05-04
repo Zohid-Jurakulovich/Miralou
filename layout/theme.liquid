@@ -8,8 +8,11 @@
       
       
       {% render 'css-variables' %}
-      <link rel="stylesheet" href="./assets/normalize.css">
-      <link rel="stylesheet" href="assets/global.css">
+      <link rel="stylesheet" href="{{ 'normalize.css' | asset_url }}">
+      <link rel="stylesheet" href="{{ 'main.css' | asset_url }}">
+
+   
+  
 
       {{ content_for_header }}
     </head>
