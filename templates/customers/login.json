@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "wip-section": {
+      "type": "wip",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "wip-section"
+  ]
+}
