@@ -1,0 +1,87 @@
+<style>
+  {% for scheme in  settings.color_schemes - %} 
+  {% assign scheme_classes = scheme_classes | append: ', .color-' | append: scheme.id %}
+  {% if forloop.index == 1 - %}
+    :root
+  {%- endif %}
+  
+  .color-{{ scheme.id }}{
+    --main-background: {{ scheme.settings.background }};
+    --gradient-background: {{ scheme.settings.background_gradient }};
+    --main-text-color: {{ scheme.settings.text }};
+    --secondary-text-color: {{ scheme.settings.secondary_text }};
+    --primary-button-color: {{ scheme.settings.button }};
+    --primary-button-bg: {{ scheme.settings.button_label }};
+    --secondary-button-color: {{ scheme.settings.secondary_button_label }};
+    --secondary-button-bg: {{ scheme.settings.secondary_button_bg }};
+    --danger :{{ scheme.settings.danger }};
+    --success :{{ scheme.settings.success }};
+  }
+  
+{% endfor %}
+
+@font-face {
+  font-display:swap;
+  font-family: "Barlow-Bold";
+  font-weight: 700;
+  font-style: normal;
+  src: url("{{ 'Barlow-Bold.woff2' | asset_url}}") format('woff2');
+}
+
+@font-face {
+  font-display:swap;
+  font-family: "Poppins";
+  font-weight: 400;
+  font-style: normal;
+  src: url("{{ 'Poppins-Regular.woff2' | asset_url}}") format('woff2');
+},
+@font-face {
+  font-display:swap;
+  font-family: "Poppins";
+  font-weight: 600;
+  font-style: normal;
+  src: url("{{ 'Poppins-SemiBold.woff2' | asset_url}}") format('woff2');
+}
+
+:root {
+  
+  --heading-main-font: "Barlow-Bold";
+  --body-main-font: "Poppins";
+  --headline-1 : 4em;
+  --headline-2 : 3.125em;
+  --headline-3 : 2.125em;
+  --headline-4 : 1.875em;
+  --headline-5 : 1.125em;
+  --headline-6 : 0.875em;
+}
+
+
+.h1{
+  font-size: var(--headline-1);
+}
+
+.h2{
+  font-size: var(--headline-2);
+}
+
+.h3{
+  font-size: var(--headline-4);
+}
+
+.h4{
+  font-size: var(--headline-4);
+}
+
+.h5{
+  font-size: var(--headline-5);
+}
+
+.h6{
+  font-size: var(--headline-6);
+}
+
+
+
+
+
+</style>

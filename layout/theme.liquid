@@ -1,24 +1,31 @@
 <!DOCTYPE html>
   <html lang="{{ shop.locale }}">
-  <head>
+    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>{{ page_title }}{% if current_tags %}{% for tag in current_tags %} - {{ tag }}{% endfor %}{% endif %}</title>
+      
+      
+      
+      {% render 'css-variables' %}
+      <link rel="stylesheet" href="./assets/normalize.css">
+      <link rel="stylesheet" href="assets/global.css">
+
       {{ content_for_header }}
-  </head>
-  <body>
+    </head>
+    <body>
       <header>
         {% section 'header' %}
       </header>
-  
+      
       <main role="main">
-          {{ content_for_layout }}
+        {{ content_for_layout }}
       </main>
-  
+      
       <footer>
         {% section 'footer' %}
       </footer>
-  
-  </body>
+      
+    </body>
   </html>
   
