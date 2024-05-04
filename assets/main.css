@@ -73,9 +73,13 @@ img {
 
 .item:last-child {
 	margin-right: 0;
-};
+}
 
 
-.header-icon{
+.header-icon {
 	text-decoration: none;
+}
+
+.header-icon + .header-icon{
+	margin-left: 32px;
 }
